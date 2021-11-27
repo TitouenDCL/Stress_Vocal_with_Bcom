@@ -9,8 +9,8 @@ from sklearn.model_selection import train_test_split
 
 from pyAudioAnalysis import audioTrainTest as aT
 
-##[Fs, x] = audioBasicIO.read_audio_file("DataBase/Fearfull/03-01-06-01-01-01-03.wav")
+#[Fs, x] = audioBasicIO.read_audio_file("DataBase/Fearfull/nicolas add/MISSING TODDLERS_ Biological mom expresses her worries - 1of3 - 3of6.mp3")
 
-aT.extract_features_and_train(["DataBase/Fearfull/RAVDES","DataBase/Neutral"], 1.0, 1.0, aT.shortTermWindow, aT.shortTermStep, "svm", "FearSVM")
+aT.extract_features_and_train(["DataBase/Fearfull/all","DataBase/Neutral"], 1.0, 1.0, aT.shortTermWindow, aT.shortTermStep, "svm", "FearSVM")
 
 
