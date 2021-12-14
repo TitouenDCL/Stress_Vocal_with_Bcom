@@ -15,23 +15,27 @@ def data_split(ratio, fear_folder, other_folder, destination_folder):
         print("Ratio must be between 0 and 1")
         return
 
+    path_test_fear = f"{destination_folder}/test/fear"
+    path_train_fear = f"{destination_folder}/train/fear"
+    path_test_other = f"{destination_folder}/test/other"
+    path_train_other = f"{destination_folder}/train/other"
     #we check if the folders that we are going to use already exists, if so, we delete them
-    if os.path.exists(destination_folder+"/X_test_fear"):
-        shutil.rmtree(destination_folder+"/X_test_fear")
-    if os.path.exists(destination_folder+"/X_train_fear"):
-        shutil.rmtree(destination_folder+"/X_train_fear")
-    if os.path.exists(destination_folder+"/X_train_other"):
-        shutil.rmtree(destination_folder+"/X_train_other")
-    if os.path.exists(destination_folder+"/X_test_other"):
-        shutil.rmtree(destination_folder+"/X_test_other")
+    if os.path.exists(path_test_fear):
+        shutil.rmtree(path_test_fear)
+    if os.path.exists(path_train_fear):
+        shutil.rmtree(path_train_fear)
+    if os.path.exists(path_train_other):
+        shutil.rmtree(path_train_other)
+    if os.path.exists(path_test_other):
+        shutil.rmtree(path_test_other)
 
 
     #we create the 4 directories where we are going to sorte the audios
-    os.makedirs(f"{destination_folder}/X_train_fear", exist_ok=True)
-    os.makedirs(f"{destination_folder}/X_test_fear", exist_ok=True)
+    os.makedirs(path_train_fear, exist_ok=True)
+    os.makedirs(path_test_fear, exist_ok=True)
 
-    os.makedirs(f"{destination_folder}/X_train_other", exist_ok=True)
-    os.makedirs(f"{destination_folder}/X_test_other", exist_ok=True)
+    os.makedirs(path_train_other, exist_ok=True)
+    os.makedirs(path_test_other, exist_ok=True)
 
     #we copy the initial data bases in our directory
     copy_tree(other_folder, f"{destination_folder}/other_copy")
@@ -48,22 +52,22 @@ def data_split(ratio, fear_folder, other_folder, destination_folder):
 
     for i in range(int(ratio*nb_audio_fear)):
         random_file0 = random.choice(os.listdir(f"{destination_folder}/fear_copy"))
-        shutil.move(f"{destination_folder}/fear_copy/"+random_file0, f"{destination_folder}/X_train_fear")
+        shutil.move(f"{destination_folder}/fear_copy/"+random_file0, path_train_fear)
 
     while len(os.listdir(f"{destination_folder}/fear_copy"))>0:
         random_file1 = random.choice(os.listdir(f"{destination_folder}/fear_copy"))
-        shutil.move(f"{destination_folder}/fear_copy/"+random_file1, f"{destination_folder}/X_test_fear")
+        shutil.move(f"{destination_folder}/fear_copy/"+random_file1, path_test_fear)
 
     for i in range(int(ratio*nb_audio_other)):
         random_file2 = random.choice(os.listdir(f"{destination_folder}/other_copy"))
-        shutil.move(f"{destination_folder}/other_copy/"+random_file2, f"{destination_folder}/X_train_other")
+        shutil.move(f"{destination_folder}/other_copy/"+random_file2, path_train_other)
 
     while len(os.listdir(f"{destination_folder}/other_copy"))>0:
         random_file3 = random.choice(os.listdir(f"{destination_folder}/other_copy"))
-        shutil.move(f"{destination_folder}/other_copy/"+random_file3, f"{destination_folder}/X_test_other")
+        shutil.move(f"{destination_folder}/other_copy/"+random_file3, path_test_other)
 
-    nb_audio_train = len(os.listdir(f"{destination_folder}/X_Train_fear"))
-    nb_audio_test = len(os.listdir(f"{destination_folder}/X_Test_fear"))
+    nb_audio_train = len(os.listdir(path_train_fear))
+    nb_audio_test = len(os.listdir(path_test_fear))
     print(f"{nb_audio_train=}")
     print(f"{nb_audio_test=}")
 
@@ -79,4 +83,4 @@ def data_split(ratio, fear_folder, other_folder, destination_folder):
                f" \n{other_folder} for other train and test ")
     file.close()
 
-data_split(0.8, 'DataBase/Fearfull/RAVDES', 'DataBase/Neutral/RAVDES', "DataBase/Random_Train_Test")
+

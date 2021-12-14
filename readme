@@ -1,0 +1,49 @@
+Description des differents fichiers du projet:
+Codes python:
+    -train_test :
+        Code de la fonction train_test.data_split(Coef, 'path de la data_base stress', 'path de la data_base other', 'path de destination')
+        la description de cette fonction est faite dans le fichier
+    -train_test_actor :
+        Code de la fonction train_test_actor.data_split_actor(acteur, 'path de la data_base stress', 'path de la data_base other', 'path de destination')
+        la description de cette fonction est faite dans le fichier
+
+    -ModelCreation et ModelEvaluation sont des fichiers qui étaient utilisé pour créer et évaluer les modèle
+        mais tout ce qui est écrit dedans est repris dans le notebook Test(1)(1)
+
+    -Test(1)(1).ipynb:
+        doit être ouvert avec jupyter notebook ( en lançant la commande 'jupyter notebook' dans
+        le terminal du projet, il récapitule tout le processus experimental
+        d'évaluation des modèles.
+
+    -AudioListener.py :
+        un copier coller de la documentation de la bibliothèque PyAudio qui défini la fonction
+            record(output, RECORD_SECONDS)
+        output: est le path ou sera écrit l'extrait audio,
+        RECORD_SECONDS: le temps d'enregistrement,
+        D'autres éléments sont modifiables directement dans la fonction
+
+    -Data_base_array.py:
+        C'est une tentative de mise sous forme de array les features d'un dossier
+        d'enregistrements audios
+
+    -main.py :
+        fichier à lancer pour tester l'enregistrement en direct et l'évaluation de notre
+        voix par le modèle choisi
+
+
+    Dossiers :
+        - Database:
+            -Fearfull: Regroupe des audios de personnes dans une emotion "fearfull"
+                        venants de la BD RAVDES et d'autres videos
+            -Neutral: Regroupe des audios de personnes dans une emotion "neutral"
+                        venants de la BD RAVDES et d'autres videos
+
+            -Other: Plusieurs audios regroupés de la BD RAVDES (emotions "neutral", "calm", "disgust","sad"
+            -Stress: Plusieurs audios regroupés de la BD RAVDES ( emotions "fearfull", "angry")
+
+                    C'est avec Other et Stress que nous avons fait nos tests
+
+            -Random_Train_Test_XXXXX: sont des séparation fait avec les fonctions data.split
+                                       et data.split.actor à partir des dossiers Other et Stress
+                                     Ils ont été crées pour la création de differents modèles
+                                     et differents tests.
