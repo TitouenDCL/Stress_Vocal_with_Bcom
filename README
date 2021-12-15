@@ -1,4 +1,26 @@
-Description des differents fichiers du projet:
+I - Mode d'emploi de l'algorithme
+II - Description des différents fichiers du projet
+
+##############################
+I - Mode d'emploi de l'algorithme
+##############################
+Requirements :
+Anaconda (Python 3.8)
+
+1 - Dépot des documents
+Les fichiers techniques sont déposés dans ce Git (https://github.com/TitouenDCL/Stress_Vocal_with_Bcom), et les documents pratiques (livrables, présentations) sont sur le google drive dédié au projet (https://drive.google.com/drive/folders/1fGIEULFbw8XsNXGfG1t5fh2XTAvAYqpE?usp=sharing).
+2 - Installation
+Pour commencer, il faut cloner le git sur l'ordinateur adéquat.
+Le fichier principal du projet, celui à lancer, est main.py.
+Nous avons crée un environnement virtuel anaconda, qui contient donc les librairies nécessaires au bon fonctionnement et la version de python adéquate.
+Afin d'utiliser l'environnement virtuel, il faut lancer Anaconda Navigator, puis changer l'environnement virtuel (par défaut root (base)) :
+Il faut donc cliquer sur Environments dans le menu à gauche du navigateur Anaconda, puis cliquer sur "import". Ensuite, chercher le fichier à la raçine du git stressVocalEnv.yml, le sélectionner et le lancer.
+Ensuite, il est possible d'exécuter le fichier main.py avec la méthode que vous préférez (en ligne de commande, ou avec spyder par exemple). Si le noyau a été lancé avant de changer d'environnement, il est nécessaire de relancer le kernel.
+
+
+##############################
+II - Description des differents fichiers du projet
+##############################
 Codes python:
     -train_test :
         Code de la fonction train_test.data_split(Coef, 'path de la data_base stress', 'path de la data_base other', 'path de destination')
